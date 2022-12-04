@@ -29,8 +29,6 @@ function App() {
     setInputTodo("")
   }
 
-  console.log(todos);
-
   function handleCheckToDo(index: number){
     return(event: React.MouseEvent)=> {
       todos[index].completed = !todos[index].completed;
@@ -52,9 +50,9 @@ function App() {
           <img src={logo} alt="Logo"/>
         </div>
       </header>
-      <main className="bg-[#1A1A1A] h-[100vh] flex flex-col items-center">
+      <main className="bg-[#1A1A1A] min-h-[100vh] flex flex-col items-center md: p-2">
         <div className="w-[100%] max-w-[736px]">
-          <form onSubmit={handleCreateToDo} className="flex gap-2 mt-[-27px]">
+          <form onSubmit={handleCreateToDo} className="flex flex-col sm:flex-row gap-2 mt-[-27px]">
             <input type="text" 
                 name="todo" 
                 onChange={(e)=>setInputTodo(e.target.value)}
@@ -62,7 +60,7 @@ function App() {
                 value={inputTodo}
                 required 
                 className="flex-1 rounded-lg bg-[#262626] border border-[#0D0D0D] p-4 text-[#808080] outline-none"/>
-            <button type="submit" className="bg-[#1E6F9F] p-4 rounded-lg text-[#F2F2F2] flex items-center gap-2">Criar <PlusCircle size={16} weight="bold" /></button>
+            <button type="submit" className="bg-[#1E6F9F] p-4 rounded-lg text-[#F2F2F2] flex items-center justify-center gap-2">Criar <PlusCircle size={16} weight="bold" /></button>
           </form>
 
           <div className="flex justify-between mt-16 mb-6">
@@ -106,6 +104,9 @@ function App() {
             </div>
           ))}
         </div>
+        <footer className="">
+          <span className="text-[#808080] text-sm">Com amor 🖤 <a href="https://github.com/devalexsantos" target="_blank" className="hover:text-[#F2F2F2]">Alex Santos</a></span>
+        </footer>
       </main>
     </div>
   )
